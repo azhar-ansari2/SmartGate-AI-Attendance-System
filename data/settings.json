@@ -1,0 +1,11 @@
+{
+  "company_name": "Infosys Limited",
+  "gate_name": "Main Gate \u2014 Block A",
+  "face_confidence_threshold": 75.0,
+  "voice_confidence_threshold": 70.0,
+  "require_voice_verification": true,
+  "audio_announcements": true,
+  "working_hours_start": "08:00",
+  "working_hours_end": "19:00",
+  "late_threshold": "09:30"
+}
