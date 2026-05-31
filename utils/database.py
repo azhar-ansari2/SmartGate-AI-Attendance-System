@@ -20,13 +20,12 @@ def add_employee(employee):
 
     query = """
     INSERT INTO employees
-    (id, emp_id, name, department, role, gender,
-     email, registered_at, face_encoding)
-    VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)
+    (emp_id, name, department, role, gender,
+    email, registered_at, face_encoding)
+    VALUES (%s,%s,%s,%s,%s,%s,%s,%s)
     """
 
     values = (
-        employee["id"],
         employee["emp_id"],
         employee["name"],
         employee["department"],
@@ -38,21 +37,6 @@ def add_employee(employee):
     )
 
     cursor.execute(query, values)
-
-    conn.commit()
-
-    cursor.close()
-    conn.close()
-
-
-def delete_employee(emp_id):
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    cursor.execute(
-        "DELETE FROM employees WHERE id=%s",
-        (emp_id,)
-    )
 
     conn.commit()
 
