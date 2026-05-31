@@ -43,6 +43,20 @@ def add_employee(employee):
     cursor.close()
     conn.close()
 
+    
+def delete_employee(emp_id):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "DELETE FROM employees WHERE emp_id=%s",
+        (emp_id,)
+    )
+
+    conn.commit()
+
+    cursor.close()
+    conn.close()
 
 def get_employee_by_id(emp_id):
     conn = get_connection()
