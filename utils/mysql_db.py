@@ -3,9 +3,9 @@ import streamlit as st
 
 def get_connection():
     return mysql.connector.connect(
-        host=st.secrets["${{mysql.railway.internal}}"],
-        port=int(st.secrets["3306"]),
-        user=st.secrets["root"],
-        password=st.secrets["${{rqZeaMMMxmOUosrSrwEgOcUKyKUgJPggYoot}}"],
-        database=st.secrets["${{railway}}"]
+        host=st.secrets["MYSQLHOST"],
+        port=int(st.secrets["MYSQLPORT"]),
+        user=st.secrets["MYSQLUSER"],
+        password=st.secrets["MYSQLPASSWORD"],
+        database=st.secrets["MYSQLDATABASE"]
     )
