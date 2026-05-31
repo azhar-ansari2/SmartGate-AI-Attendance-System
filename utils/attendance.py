@@ -1,5 +1,6 @@
 from utils.mysql_db import get_connection
 import datetime
+import random
 
 
 def mark_attendance(emp_id, name, gender, confidence):
@@ -9,14 +10,15 @@ def mark_attendance(emp_id, name, gender, confidence):
 
     cursor.execute("""
         INSERT INTO attendance
-        (emp_id,name,gender,confidence,timestamp)
-        VALUES (%s,%s,%s,%s,%s)
+        (id, emp_id, name, gender, confidence, timestamp)
+        VALUES (%s, %s, %s, %s, %s, %s)
     """, (
+        random.randint(100000, 999999),
         emp_id,
         name,
         gender,
         confidence,
-        datetime.datetime.now()
+        datetime.datetime.now().date()
     ))
 
     conn.commit()
